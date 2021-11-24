@@ -19,28 +19,9 @@ namespace THDShop.Controllers
 
         public ActionResult Index()
         {
-            var query = from c in _db.PRODUCTS
-                        select new ProductDTO
-                        {
-                            ID = c.ID,
-                            NAME = c.NAME,
-                            PRICE = c.PRICE,
-                            ORI_PRICE = c.ORI_PRICE,
-                            DESCRIPTION = c.DESCRIPTION,
-                            CATEGORYNAME = c.CATEGORIES.NAME,
-                            IDCATEGORY = c.IDCATEGORY,
-                            QUANTITY = c.QUANTITY,
-                            IMAGE = c.IMAGE,
-                            DESCRIPTION_CPU = c.DESCRIPTION_CPU,
-                            DESCRIPTION_RAM = c.DESCRIPTION_RAM,
-                            DESCRIPTION_STORAGE = c.DESCRIPTION_STORAGE,
-                            DESCRIPTION_CARD = c.DESCRIPTION_CARD,
-                            DESCRIPTION_SCREEN = c.DESCRIPTION_SCREEN,
-                            DESCRIPTION_WEIGHT = c.DESCRIPTION_WEIGHT
-                        };
-            return View(query.ToList());
+            var query = _db.PRODUCTS.OrderByDescending(x => x.NAME);
+            return View(query);
 
-        }
-      
+        }   
     }
 }
