@@ -12,7 +12,7 @@ namespace THDShop.ViewModel.Product
     {
         public CreateProductInput()
         {
-            IMAGE = "~/Assets/Images/hp1.jpg";
+            IMAGE = "~/Assets/Images/upload.png";
         }
         public int ID { get; set; }
 
@@ -43,7 +43,24 @@ namespace THDShop.ViewModel.Product
         [Required(ErrorMessage = "Bạn chưa nhập mô tả")]
         [Display(Name = "Mô tả")]
         public string DESCRIPTION { get; set; }
-
+        [Required(ErrorMessage = "Bạn chưa nhập mô tả CPU")]
+        [Display(Name = "Mô tả CPU")]
+        public string DESCRIPTION_CPU { get; set; }
+        [Required(ErrorMessage = "Bạn chưa nhập mô tả Ram")]
+        [Display(Name = "Mô tả CPU")]
+        public string DESCRIPTION_RAM { get; set; }
+        [Required(ErrorMessage = "Bạn chưa nhập mô tả dung lượng")]
+        [Display(Name = "Mô tả Dung lượng")]
+        public string DESCRIPTION_STORAGE { get; set; }
+        [Required(ErrorMessage = "Bạn chưa nhập mô tả Card")]
+        [Display(Name = "Mô tả Card")]
+        public string DESCRIPTION_CARD { get; set; }
+        [Required(ErrorMessage = "Bạn chưa nhập mô tả khung hình")]
+        [Display(Name = "Mô tả Khung hình")]
+        public string DESCRIPTION_SCREEN { get; set; }
+        [Required(ErrorMessage = "Bạn chưa nhập mô tả cân nặng")]
+        [Display(Name = "Mô tả Cân nặng")]
+        public string DESCRIPTION_WEIGHT { get; set; }
 
         public string IMAGE { get; set; }
 

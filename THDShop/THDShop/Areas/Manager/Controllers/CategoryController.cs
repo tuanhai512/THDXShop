@@ -34,9 +34,9 @@ namespace THDShop.Areas.Manager.Controllers
         [HttpPost]
         public ActionResult Create(CreateCategoryInput model)
         {
-            var entity = new CATEGORIES();
+            var entity = new CATEGORy();
             if (model == null)
-                entity = new CATEGORIES();
+                entity = new CATEGORy();
             entity.NAME = model.Name;
             _context.CATEGORIES.Add(entity);
             _context.SaveChanges();
@@ -57,7 +57,7 @@ namespace THDShop.Areas.Manager.Controllers
         [HttpPost]
         public ActionResult Edit(UpdateCategoryInput model)
         {
-            var entity = new CATEGORIES();
+            var entity = new CATEGORy();
             if (model == null)
                 return HttpNotFound();
             entity.ID = model.ID;
