@@ -1,0 +1,65 @@
+﻿@model THDShop.ViewModel.Product.CreateProductInput
+
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <link href="~/form/css/StyleSheet.css" rel="stylesheet" />
+</head>
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Create Product</h1>
+</div>
+
+@using (Html.BeginForm("Create", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="text-center-box">
+        <div class="paddingtop rl" style="padding-bottom: 20px;">
+            <div class="form">
+
+                <div class="form-group">
+                    @Html.EditorFor(model => model.NAME, new { htmlAttributes = new { placeholder = "Tên Sản Phẩm" } })
+                    @Html.ValidationMessageFor(model => model.NAME, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group ">
+                    @Html.EditorFor(model => model.PRICE, new { htmlAttributes = new { placeholder = "Giá Bán" } })
+                    @Html.ValidationMessageFor(model => model.PRICE, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group ">
+                    @Html.EditorFor(model => model.ORI_PRICE, new { htmlAttributes = new { placeholder = "Giá Gốc" } })
+                    @Html.ValidationMessageFor(model => model.ORI_PRICE, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group">
+                    @Html.EditorFor(model => model.QUANTITY, new { htmlAttributes = new { placeholder = "Số Lượng" } })
+                    @Html.ValidationMessageFor(model => model.QUANTITY, "", new { @class = "text-danger" })
+                </div>
+                <div class="form-group ">
+                    @Html.EditorFor(model => model.DESCRIPTION, new { htmlAttributes = new { placeholder = "Nội Dung" } })
+                    @Html.ValidationMessageFor(model => model.DESCRIPTION, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group ">
+                    @Html.DropDownList("IDCATEGORY", (IEnumerable<SelectListItem>)ViewBag.Categories, "Chọn loại", new { @id = "adad" })
+                    @Html.ValidationMessageFor(model => model.IDCATEGORY, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group ">
+                    <img src="@Url.Content(Model.IMAGE)" style="height:200px; width:200px; margin:10px;" id="previewImg" />
+                    <input type="file" id="file" name="UploadImage" onchange="ChangeImage(this, document.getElementById('previewImg'))" />
+                    <label for="file" class="btn-2">Upload Hình Ảnh</label>
+                </div>
+
+                <div>
+                    <input class="btn btn-success" type="submit" value="Create" />
+                    <span class="btn btn-link">@Html.ActionLink("Quay về", "Index") </span>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<script src="~/Scripts/script.js"></script>

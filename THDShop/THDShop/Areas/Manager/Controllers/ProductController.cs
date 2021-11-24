@@ -18,36 +18,9 @@ namespace THDShop.Areas.Manager.Controllers
             ProductSingleton.Instance.Init(_context);
         }
 
-
-        //public ProductController(QLLaptopShopEntities context)
-        //{
-        //    this._context = context;
-        //    //  this._webHostEnvironment = webHostEnvironment;
-        //    ProductSingleton.Instance.Init(context);
-
-        //}
         public ActionResult Index()
         {
-            //var query = from c in _context.PRODUCTS
-            //            select new ProductDTO
-            //            {
-            //                ID = c.ID,
-            //                NAME = c.NAME,
-            //                PRICE = c.PRICE,
-            //                ORI_PRICE = c.ORI_PRICE,
-            //                DESCRIPTION = c.DESCRIPTION,
-            //                CATEGORYNAME = c.CATEGORIES.NAME,
-            //                IDCATEGORY = c.IDCATEGORY,
-            //                QUANTITY = c.QUANTITY,
-            //                IMAGE = c.IMAGE,                         
-            //                DESCRIPTION_CPU = c.DESCRIPTION_CPU,
-            //                DESCRIPTION_RAM = c.DESCRIPTION_RAM,
-            //                DESCRIPTION_STORAGE  = c.DESCRIPTION_STORAGE,
-            //                DESCRIPTION_CARD  = c.DESCRIPTION_CARD,
-            //                DESCRIPTION_SCREEN = c.DESCRIPTION_SCREEN,
-            //                DESCRIPTION_WEIGHT = c.DESCRIPTION_WEIGHT
-            //            };
-            //return View(query.ToList());
+            
             var query = ProductSingleton.Instance.listProduct;
             return View(query.ToList());
         }
@@ -88,7 +61,7 @@ namespace THDShop.Areas.Manager.Controllers
                     filename = filename + extent;
                     model.IMAGE = "~/Assets/Images/" + filename;
                     model.UploadImage.SaveAs(Path.Combine(Server.MapPath("~/Assets/Images"), filename));
-                    model.UploadImage.SaveAs(Path.GetFullPath("H:/năm 4/THDShop/THDShop/User/Assets/img" + filename));
+                   
                 }
                 entity.IMAGE = model.IMAGE;
                 if (ModelState.IsValid)

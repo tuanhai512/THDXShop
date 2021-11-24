@@ -40,5 +40,9 @@ namespace THDShop
         public virtual DbSet<USERS> USERS { get; set; }
 
         public System.Data.Entity.DbSet<THDShop.ViewModel.Category.CategoryDTO> CategoryDTOes { get; set; }
+
+        public System.Data.Entity.DbSet<THDShop.ViewModel.Product.ProductDTO> ProductDTOes { get; set; }
+
+        public System.Data.Entity.DbSet<THDShop.ViewModel.Product.CreateProductInput> CreateProductInputs { get; set; }
     }
 }
